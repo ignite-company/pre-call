@@ -7,6 +7,8 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Your Ignite Call | Pre-Call Walkthrough</title>
 <meta name="description" content="You're booked. Learn what to expect from your Ignite Co. remodeling growth systems call and get answers to common questions before we meet.">
+<link rel="dns-prefetch" href="//assets.cdn.filesafe.space">
+<link rel="preconnect" href="https://assets.cdn.filesafe.space" crossorigin>
 <style>
 :root{color-scheme:dark;--bg:#08090d;--bg2:#0e0e14;--surface:#15161e;--surface2:#191922;--ink:#faf9fb;--muted:#adafbd;--line:rgba(255,255,255,.12);--pink:#ff5274;--pink2:#ed3057;--lime:#9beab9}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}p,h1,h2,h3{margin:0}p{line-height:1.65}::selection{background:#ec3b69;color:white}
@@ -42,7 +44,16 @@ footer{border-top:1px solid var(--line);padding:25px 0 34px;color:#8d8f9d;font-s
 
 /* Non-interactive, single-run welcome confetti. */
 #welcome-confetti{position:fixed;inset:0;z-index:1000;width:100%;height:100%;pointer-events:none}
-.precall-main-video{display:block;width:100%;height:100%;aspect-ratio:16/9;object-fit:contain;background:#050509;position:relative;z-index:1}</style>
+.precall-main-video{display:block;width:100%;height:100%;aspect-ratio:16/9;object-fit:contain;background:#050509;position:relative;z-index:1}
+/* Fast-start, muted autoplay pre-call player with the same unmute treatment as the funnel. */
+.precall-unmute{position:absolute;left:50%;bottom:22%;transform:translateX(-50%);width:min(505px,calc(100% - 34px));min-height:102px;display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;text-align:center;z-index:3;padding:18px 22px;border:1px solid rgba(255,255,255,.45);border-radius:20px;background:linear-gradient(112deg,#ff4771 0%,#e52b66 54%,#9e267d 100%);color:#fff;box-shadow:0 18px 55px rgba(0,0,0,.58),0 6px 34px rgba(245,50,111,.34);font-weight:850;cursor:pointer}
+.precall-unmute:hover{filter:brightness(1.08)}
+.precall-unmute:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.precall-unmute>span{font-size:12px;letter-spacing:.12em}
+.precall-unmute strong{font-size:clamp(17px,2.8vw,25px);line-height:1.16;letter-spacing:-.04em}
+.precall-unmute.is-hidden{display:none}
+@media(max-width:600px){.precall-unmute{bottom:17%;min-height:64px;padding:10px 13px;border-radius:13px;gap:4px;width:min(390px,calc(100% - 20px))}.precall-unmute>span{font-size:9px;letter-spacing:.08em}.precall-unmute strong{font-size:clamp(15px,4.5vw,19px)}}
+</style>
 </head>
 <body>
 <canvas id="welcome-confetti" aria-hidden="true"></canvas>
@@ -58,8 +69,14 @@ Your pre-call walkthrough
 <h1>You're booked.<br><span class="accent">Let's make it count.</span></h1>
 <p class="hero-copy">Before we meet, I want you to understand exactly <strong>how Ignite helps kitchen and bathroom remodelers</strong>, what we build, and what to expect from our conversation.</p>
 <div class="video-wrap" id="watch">
-<div class="video-frame" aria-label="Ignite Co. pre-call introduction video"><video class="precall-main-video" controls playsinline preload="metadata" aria-label="Watch the Ignite Co. pre-call introduction"><source src="https://assets.cdn.filesafe.space/bF1dT8IAVuvat84LkAVe/media/6ad0e25cf26156acedf3ca89.mp4" type="video/mp4">Your browser does not support HTML5 video. <a href="https://assets.cdn.filesafe.space/bF1dT8IAVuvat84LkAVe/media/6ad0e25cf26156acedf3ca89.mp4" target="_blank" rel="noopener noreferrer">Watch the video here</a>.</video></div>
-<p class="video-note">Watch this short video before our meeting. Your meeting details are in your calendar invitation.</p>
+<div class="video-frame" aria-label="Ignite Co. pre-call introduction video">
+<video id="precall-main-video" class="precall-main-video" controls autoplay muted playsinline preload="auto" aria-label="Watch the Ignite Co. pre-call introduction"><source src="https://assets.cdn.filesafe.space/bF1dT8IAVuvat84LkAVe/media/6ad0e25cf26156acedf3ca89.mp4" type="video/mp4">Your browser does not support HTML5 video. <a href="https://assets.cdn.filesafe.space/bF1dT8IAVuvat84LkAVe/media/6ad0e25cf26156acedf3ca89.mp4" target="_blank" rel="noopener noreferrer">Watch the video here</a>.</video>
+<button id="precall-unmute" class="precall-unmute" type="button" aria-label="Unmute the pre-call video">
+<span id="precall-unmute-status">YOUR WALKTHROUGH IS LOADING</span>
+<strong id="precall-unmute-action">PRESS TO PLAY WITH SOUND 🔊</strong>
+</button>
+</div>
+<p class="video-note">Your video starts automatically with sound off. Tap the video to enable sound. Meeting details are in your calendar invitation.</p>
 </div>
 <div class="hero-actions"><a class="btn" href="#faq">Answers before we meet <span aria-hidden="true">↓</span></a><a class="btn alt" href="#prepare">How to prepare <span aria-hidden="true">↓</span></a></div>
 <p class="hero-foot">No forms. No second booking. Just a better-prepared conversation.</p>
@@ -234,6 +251,45 @@ Your pre-call walkthrough
     else cleanup();
   };
   requestAnimationFrame(animate);
+})();
+</script>
+<script>
+(() => {
+  'use strict';
+  const video = document.getElementById('precall-main-video');
+  const button = document.getElementById('precall-unmute');
+  const status = document.getElementById('precall-unmute-status');
+  const action = document.getElementById('precall-unmute-action');
+  if (!video || !button) return;
+
+  // Muted inline playback is permitted by modern browsers without a tap.
+  video.muted = true;
+  video.defaultMuted = true;
+
+  function updateUnmute() {
+    const muted = video.muted || video.volume === 0;
+    button.classList.toggle('is-hidden', !muted);
+    if (!muted) return;
+    const isLoading = video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA && !video.error;
+    status.textContent = isLoading ? 'YOUR WALKTHROUGH IS LOADING' : video.paused ? 'YOUR WALKTHROUGH IS READY' : 'YOUR WALKTHROUGH IS PLAYING';
+    action.textContent = video.paused ? 'PRESS TO PLAY WITH SOUND 🔊' : 'PRESS TO UNMUTE 🔊';
+  }
+
+  button.addEventListener('click', () => {
+    video.muted = false;
+    video.defaultMuted = false;
+    video.volume = 1;
+    if (video.paused) video.play().catch(updateUnmute);
+    updateUnmute();
+  });
+  for (const eventName of ['volumechange','loadeddata','playing','play','pause','waiting','canplay']) {
+    video.addEventListener(eventName, updateUnmute);
+  }
+
+  // The video is first in the hero and uses preload=auto, so start buffering
+  // and playing immediately instead of waiting for visitors to interact.
+  video.play().catch(updateUnmute);
+  updateUnmute();
 })();
 </script>
 </body>
