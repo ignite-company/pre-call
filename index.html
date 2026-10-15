@@ -42,7 +42,7 @@ footer{border-top:1px solid var(--line);padding:25px 0 34px;color:#8d8f9d;font-s
 
 /* Non-interactive, single-run welcome confetti. */
 #welcome-confetti{position:fixed;inset:0;z-index:1000;width:100%;height:100%;pointer-events:none}
-</style>
+.precall-main-video{display:block;width:100%;height:100%;aspect-ratio:16/9;object-fit:contain;background:#050509;position:relative;z-index:1}</style>
 </head>
 <body>
 <canvas id="welcome-confetti" aria-hidden="true"></canvas>
@@ -58,17 +58,8 @@ Your pre-call walkthrough
 <h1>You're booked.<br><span class="accent">Let's make it count.</span></h1>
 <p class="hero-copy">Before we meet, I want you to understand exactly <strong>how Ignite helps kitchen and bathroom remodelers</strong>, what we build, and what to expect from our conversation.</p>
 <div class="video-wrap" id="watch">
-<div class="video-frame" aria-label="Placeholder for Ignite Co. pre-call FAQ video">
-<div class="video-placeholder">
-<div class="placeholder-play" aria-hidden="true">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5.5a1 1 0 0 1 1.5-.86l9 6.5a1.05 1.05 0 0 1 0 1.72l-9 6.5A1 1 0 0 1 8 18.5v-13Z"/></svg>
-</div>
-<span class="placeholder-tag">A quick message from Ignite Co.</span>
-<div class="placeholder-title">Your pre-call FAQ video</div>
-<div class="placeholder-caption">Horizontal video placeholder • Coming soon</div>
-</div>
-</div>
-<p class="video-note">This is where your FAQ and pre-call overview video will play. Your meeting details are in your calendar invitation.</p>
+<div class="video-frame" aria-label="Ignite Co. pre-call introduction video"><video class="precall-main-video" controls playsinline preload="metadata" aria-label="Watch the Ignite Co. pre-call introduction"><source src="https://assets.cdn.filesafe.space/bF1dT8IAVuvat84LkAVe/media/6ad0e25cf26156acedf3ca89.mp4" type="video/mp4">Your browser does not support HTML5 video. <a href="https://assets.cdn.filesafe.space/bF1dT8IAVuvat84LkAVe/media/6ad0e25cf26156acedf3ca89.mp4" target="_blank" rel="noopener noreferrer">Watch the video here</a>.</video></div>
+<p class="video-note">Watch this short video before our meeting. Your meeting details are in your calendar invitation.</p>
 </div>
 <div class="hero-actions"><a class="btn" href="#faq">Answers before we meet <span aria-hidden="true">↓</span></a><a class="btn alt" href="#prepare">How to prepare <span aria-hidden="true">↓</span></a></div>
 <p class="hero-foot">No forms. No second booking. Just a better-prepared conversation.</p>
