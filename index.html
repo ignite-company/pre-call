@@ -29,6 +29,16 @@ footer{border-top:1px solid var(--line);padding:25px 0 34px;color:#8d8f9d;font-s
 @media(max-width:800px){.section{padding:70px 0}.grid-3{grid-template-columns:1fr}.card{min-height:0}.index{margin-bottom:20px}.story-grid,.prep-grid{grid-template-columns:1fr;gap:30px}.story-fact{max-width:550px}}
 @media(max-width:600px){.wrap{width:calc(100% - 28px)}.hero{padding:31px 0 58px}.brand{margin-bottom:40px;font-size:17px}.badge{font-size:10px}.hero h1{font-size:clamp(40px,11vw,55px);margin-top:18px}.hero-copy{font-size:15px;margin-bottom:27px}.video-frame{border-radius:14px}.video-frame:after{inset:7px;border-radius:9px}.placeholder-play{width:43px;height:43px;margin-bottom:9px}.placeholder-play svg{width:17px;height:17px}.placeholder-tag{font-size:9px;margin-bottom:5px}.placeholder-title{font-size:17px}.placeholder-caption{font-size:10px;margin-top:6px}.video-note{font-size:11px}.hero-actions{display:grid;gap:10px}.btn{width:100%}.stripes{grid-template-columns:1fr 1fr}.stripe-item{padding:17px 9px}.stripe-item:nth-child(2){border-right:0}.stripe-item:last-child{grid-column:1/-1;border-top:1px solid var(--line)}.stripe-item strong{font-size:12px}.stripe-item span{font-size:11px}.section{padding:59px 0}.section-intro p{font-size:15px}.card{padding:25px}.story-fact{padding:25px}.faq-list{border-radius:18px}details{padding:0 18px}summary{min-height:78px;font-size:15px}.plus{width:26px;height:26px}details p{padding:0 6px 20px 0;font-size:14px}.prep-copy p{font-size:15px}.prep-item{padding:19px 16px}.end{padding:64px 0}.end-card{padding:42px 18px}.end-card p{font-size:14px}.footer-content{display:block}.footer-content>span:last-child{display:block;margin-top:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Individually replaceable FAQ video blocks. Each is 16:9 and ready for an embedded HTML5 player. */
+.faq-video{width:min(100%,650px);aspect-ratio:16/9;border:1px solid rgba(255,255,255,.18);border-radius:18px;margin:5px 0 18px;background:radial-gradient(ellipse at 50% 18%,rgba(246,66,113,.24),transparent 60%),linear-gradient(140deg,#221620,#11121a 65%,#0b0c12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;padding:25px;overflow:hidden}
+.faq-video-play{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:linear-gradient(130deg,#ff648a,#ed2d5a);border:1px solid rgba(255,255,255,.35);box-shadow:0 10px 34px rgba(232,40,95,.22);margin-bottom:7px}
+.faq-video-play svg{margin-left:5px}
+.faq-video-kicker{color:#ff8eaa;font-size:11px;letter-spacing:.16em;font-weight:850}
+.faq-video strong{font-size:clamp(17px,2.3vw,24px);letter-spacing:-.04em}
+.faq-video small{font-size:12px;color:#bdafba}
+.faq-video video{display:block;width:100%;height:100%;object-fit:contain;background:#000}
+@media(max-width:600px){.faq-video{border-radius:12px;padding:15px;gap:4px}.faq-video-play{width:43px;height:43px;margin-bottom:3px}.faq-video-play svg{width:16px;height:16px}.faq-video-kicker{font-size:9px}.faq-video strong{font-size:17px}.faq-video small{font-size:10px}}
 </style>
 </head>
 <body>
@@ -60,6 +70,62 @@ Your pre-call walkthrough
 <p class="hero-foot">No forms. No second booking. Just a better-prepared conversation.</p>
 </div></div>
 </section>
+<section class="section" id="faq" aria-labelledby="faq-title">
+<div class="wrap faqs">
+<div class="section-intro"><div class="eyebrow">The questions I hear most</div><h2 id="faq-title">Let's clear a few things up <span class="accent">before the call.</span></h2>
+<p>Here are straight answers to the things remodeling owners usually want to understand before investing in better systems.</p></div>
+<div class="faq-list">
+<details open><summary>What exactly does Ignite Co. do?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-video" data-faq-video="01" role="group" aria-label="Video answer 01 coming soon">
+  <div class="faq-video-play" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M8 5.5a1 1 0 0 1 1.5-.86l9 6.5a1.05 1.05 0 0 1 0 1.72l-9 6.5A1 1 0 0 1 8 18.5v-13Z"/></svg></div>
+  <span class="faq-video-kicker">VIDEO ANSWER 01</span>
+  <strong>Your video answer goes here</strong>
+  <small>16:9 horizontal video placeholder</small>
+</div><p>We assess your lead-to-customer process and build or improve the systems that help capture inquiries, respond quickly, follow up, reactivate past contacts, request honest reviews and create referral opportunities. That may include a website, qualification funnel, CRM or automation, depending on what you already use and what actually needs fixing.</p></details>
+<details><summary>Are you just another marketing agency?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-video" data-faq-video="02" role="group" aria-label="Video answer 02 coming soon">
+  <div class="faq-video-play" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M8 5.5a1 1 0 0 1 1.5-.86l9 6.5a1.05 1.05 0 0 1 0 1.72l-9 6.5A1 1 0 0 1 8 18.5v-13Z"/></svg></div>
+  <span class="faq-video-kicker">VIDEO ANSWER 02</span>
+  <strong>Your video answer goes here</strong>
+  <small>16:9 horizontal video placeholder</small>
+</div><p>No. We're not simply selling ad management or promising more leads. Our focus is the process behind the marketing: getting inquiries to the right person, following up consistently, and improving how your business handles opportunities. Advertising may be part of a separately agreed plan if it makes sense.</p></details>
+<details><summary>Would I have to replace my existing software?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-video" data-faq-video="03" role="group" aria-label="Video answer 03 coming soon">
+  <div class="faq-video-play" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M8 5.5a1 1 0 0 1 1.5-.86l9 6.5a1.05 1.05 0 0 1 0 1.72l-9 6.5A1 1 0 0 1 8 18.5v-13Z"/></svg></div>
+  <span class="faq-video-kicker">VIDEO ANSWER 03</span>
+  <strong>Your video answer goes here</strong>
+  <small>16:9 horizontal video placeholder</small>
+</div><p>Not automatically. If your tools are working, the first question is what we can improve around them. If a platform change or integration is recommended, we'll explain the tradeoffs and agree on the scope first.</p></details>
+<details><summary>Does Ignite handle estimates or manage my projects?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-video" data-faq-video="04" role="group" aria-label="Video answer 04 coming soon">
+  <div class="faq-video-play" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M8 5.5a1 1 0 0 1 1.5-.86l9 6.5a1.05 1.05 0 0 1 0 1.72l-9 6.5A1 1 0 0 1 8 18.5v-13Z"/></svg></div>
+  <span class="faq-video-kicker">VIDEO ANSWER 04</span>
+  <strong>Your video answer goes here</strong>
+  <small>16:9 horizontal video placeholder</small>
+</div><p>No. Your team controls estimating, pricing, contracts, construction and customer delivery. We focus on acquisition, lead response, nurturing, client reactivation and reputation systems.</p></details>
+<details><summary>How much does it cost? Is there a monthly fee?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-video" data-faq-video="05" role="group" aria-label="Video answer 05 coming soon">
+  <div class="faq-video-play" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M8 5.5a1 1 0 0 1 1.5-.86l9 6.5a1.05 1.05 0 0 1 0 1.72l-9 6.5A1 1 0 0 1 8 18.5v-13Z"/></svg></div>
+  <span class="faq-video-kicker">VIDEO ANSWER 05</span>
+  <strong>Your video answer goes here</strong>
+  <small>16:9 horizontal video placeholder</small>
+</div><p>The investment depends on the systems you already have and the buildout you need. We discuss the scope and price openly on the call before you make a decision. Optional ongoing support, advertising spend and third-party software charges are separate unless your agreement says otherwise.</p></details>
+<details><summary>Will I own the systems you build?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-video" data-faq-video="06" role="group" aria-label="Video answer 06 coming soon">
+  <div class="faq-video-play" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M8 5.5a1 1 0 0 1 1.5-.86l9 6.5a1.05 1.05 0 0 1 0 1.72l-9 6.5A1 1 0 0 1 8 18.5v-13Z"/></svg></div>
+  <span class="faq-video-kicker">VIDEO ANSWER 06</span>
+  <strong>Your video answer goes here</strong>
+  <small>16:9 horizontal video placeholder</small>
+</div><p>You'll keep ownership of the deliverables defined in your agreement. We'll be clear about any tools or subscriptions required to run them, and what happens after the initial buildout.</p></details>
+<details><summary>Can you guarantee more booked jobs?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-video" data-faq-video="07" role="group" aria-label="Video answer 07 coming soon">
+  <div class="faq-video-play" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M8 5.5a1 1 0 0 1 1.5-.86l9 6.5a1.05 1.05 0 0 1 0 1.72l-9 6.5A1 1 0 0 1 8 18.5v-13Z"/></svg></div>
+  <span class="faq-video-kicker">VIDEO ANSWER 07</span>
+  <strong>Your video answer goes here</strong>
+  <small>16:9 horizontal video placeholder</small>
+</div><p>Results depend on your existing lead volume, local market, project fit, response times and sales process. We won't invent a return or promise a specific number of projects before looking at your business. The call is where we'll identify the opportunities we can realistically address.</p></details>
+<details><summary>What will we actually do on the call?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-video" data-faq-video="08" role="group" aria-label="Video answer 08 coming soon">
+  <div class="faq-video-play" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M8 5.5a1 1 0 0 1 1.5-.86l9 6.5a1.05 1.05 0 0 1 0 1.72l-9 6.5A1 1 0 0 1 8 18.5v-13Z"/></svg></div>
+  <span class="faq-video-kicker">VIDEO ANSWER 08</span>
+  <strong>Your video answer goes here</strong>
+  <small>16:9 horizontal video placeholder</small>
+</div><p>We'll learn how your company currently gets inquiries, responds, follows up and stays in touch with past customers. Then we'll discuss the biggest gaps, whether Ignite is a fit, and what a practical buildout could look like. It's a business conversation, not a generic software demo.</p></details>
+</div>
+</div>
+</section>
 <section class="stripe" aria-label="What you can expect">
 <div class="wrap stripes">
 <div class="stripe-item"><strong>Built for remodeling</strong><span>Industry experience, not just ad theory</span></div>
@@ -86,22 +152,6 @@ Your pre-call walkthrough
 <p>That's why Ignite looks beyond advertisements. We help make the systems behind your inquiries work harder, while your team stays in charge of sales, estimating and construction.</p>
 </div>
 <div class="story-fact"><div class="eyebrow">Hands-on remodeling experience</div><span class="fact-large">2 years.</span><p>Lead project management experience at a $1M+ kitchen and bathroom remodeling company.</p><div class="fact-foot">We work on the lead journey and related business systems. Your team remains responsible for pricing jobs, signing contracts and completing the remodels.</div></div>
-</div>
-</section>
-<section class="section" id="faq" aria-labelledby="faq-title">
-<div class="wrap faqs">
-<div class="section-intro"><div class="eyebrow">The questions I hear most</div><h2 id="faq-title">Let's clear a few things up <span class="accent">before the call.</span></h2>
-<p>Here are straight answers to the things remodeling owners usually want to understand before investing in better systems.</p></div>
-<div class="faq-list">
-<details open><summary>What exactly does Ignite Co. do?<span class="plus" aria-hidden="true">+</span></summary><p>We assess your lead-to-customer process and build or improve the systems that help capture inquiries, respond quickly, follow up, reactivate past contacts, request honest reviews and create referral opportunities. That may include a website, qualification funnel, CRM or automation, depending on what you already use and what actually needs fixing.</p></details>
-<details><summary>Are you just another marketing agency?<span class="plus" aria-hidden="true">+</span></summary><p>No. We're not simply selling ad management or promising more leads. Our focus is the process behind the marketing: getting inquiries to the right person, following up consistently, and improving how your business handles opportunities. Advertising may be part of a separately agreed plan if it makes sense.</p></details>
-<details><summary>Would I have to replace my existing software?<span class="plus" aria-hidden="true">+</span></summary><p>Not automatically. If your tools are working, the first question is what we can improve around them. If a platform change or integration is recommended, we'll explain the tradeoffs and agree on the scope first.</p></details>
-<details><summary>Does Ignite handle estimates or manage my projects?<span class="plus" aria-hidden="true">+</span></summary><p>No. Your team controls estimating, pricing, contracts, construction and customer delivery. We focus on acquisition, lead response, nurturing, client reactivation and reputation systems.</p></details>
-<details><summary>How much does it cost? Is there a monthly fee?<span class="plus" aria-hidden="true">+</span></summary><p>The investment depends on the systems you already have and the buildout you need. We discuss the scope and price openly on the call before you make a decision. Optional ongoing support, advertising spend and third-party software charges are separate unless your agreement says otherwise.</p></details>
-<details><summary>Will I own the systems you build?<span class="plus" aria-hidden="true">+</span></summary><p>You'll keep ownership of the deliverables defined in your agreement. We'll be clear about any tools or subscriptions required to run them, and what happens after the initial buildout.</p></details>
-<details><summary>Can you guarantee more booked jobs?<span class="plus" aria-hidden="true">+</span></summary><p>Results depend on your existing lead volume, local market, project fit, response times and sales process. We won't invent a return or promise a specific number of projects before looking at your business. The call is where we'll identify the opportunities we can realistically address.</p></details>
-<details><summary>What will we actually do on the call?<span class="plus" aria-hidden="true">+</span></summary><p>We'll learn how your company currently gets inquiries, responds, follows up and stays in touch with past customers. Then we'll discuss the biggest gaps, whether Ignite is a fit, and what a practical buildout could look like. It's a business conversation, not a generic software demo.</p></details>
-</div>
 </div>
 </section>
 <section class="section prep" id="prepare" aria-labelledby="prepare-title">
