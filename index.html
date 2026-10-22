@@ -382,7 +382,12 @@ Your pre-call walkthrough
     if (!video) return;
     entry.addEventListener('toggle', () => {
       if (entry.open) {
+        // Keep the FAQ short and easy to scan, with only one expanded answer.
+        entries.forEach(other => {
+          if (other !== entry && other.open) other.open = false;
+        });
         video.preload = 'metadata';
+        if (video.networkState === HTMLMediaElement.NETWORK_EMPTY) video.load();
       } else {
         video.pause();
         video.preload = 'none';
