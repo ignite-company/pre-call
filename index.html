@@ -45,6 +45,9 @@ footer{border-top:1px solid var(--line);padding:25px 0 34px;color:#8d8f9d;font-s
 /* Non-interactive, single-run welcome confetti. */
 #welcome-confetti{position:fixed;inset:0;z-index:1000;width:100%;height:100%;pointer-events:none}
 .precall-main-video{display:block;width:100%;height:100%;aspect-ratio:16/9;object-fit:contain;background:#050509;position:relative;z-index:1}
+.hero-video-help{font-size:13px;margin-top:12px;color:#d4c4ca}
+.hero-video-help[hidden]{display:none}
+.hero-video-help a{color:#ff8ca6;text-decoration:underline;text-underline-offset:3px}
 .faq-video.is-player{display:block;padding:0;line-height:0;aspect-ratio:16/9;background:#060608}
 .faq-video.is-player video{display:block;width:100%;height:100%;aspect-ratio:16/9;object-fit:contain;background:#050509}
 @media(max-width:600px){.faq-video.is-player{padding:0}}
@@ -79,6 +82,7 @@ Your pre-call walkthrough
 <strong id="precall-unmute-action">PRESS TO PLAY WITH SOUND 🔊</strong>
 </button>
 </div>
+<p class="hero-video-help" id="hero-video-help" hidden>Taking longer than expected? <a href="https://assets.cdn.filesafe.space/bF1dT8IAVuvat84LkAVe/media/6ad0e25cf26156acedf3ca89.mp4" target="_blank" rel="noopener noreferrer">Open the video directly ↗</a></p>
 <p class="video-note">Your video starts automatically with sound off. Tap the video to enable sound. Meeting details are in your calendar invitation.</p>
 </div>
 <div class="hero-actions"><a class="btn" href="#faq">Answers before we meet <span aria-hidden="true">↓</span></a><a class="btn alt" href="#prepare">How to prepare <span aria-hidden="true">↓</span></a></div>
@@ -283,6 +287,27 @@ Your pre-call walkthrough
 
   // The video is first in the hero and uses preload=auto, so start buffering
   // and playing immediately instead of waiting for visitors to interact.
+  const fallback = document.getElementById('hero-video-help');
+  const slowTimer = window.setTimeout(() => {
+    if (video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA && !video.error) {
+      fallback.hidden = false;
+      status.textContent = 'VIDEO IS STILL LOADING';
+      action.textContent = 'TAP TO PLAY WITH SOUND 🔊';
+    }
+  }, 5500);
+  const videoIsReady = () => {
+    window.clearTimeout(slowTimer);
+    fallback.hidden = true;
+    updateUnmute();
+  };
+  video.addEventListener('loadeddata', videoIsReady, { once: true });
+  video.addEventListener('playing', videoIsReady, { once: true });
+  video.addEventListener('error', () => {
+    window.clearTimeout(slowTimer);
+    fallback.hidden = false;
+    status.textContent = 'VIDEO UNAVAILABLE';
+    action.textContent = 'TRY PLAYING OR USE LINK BELOW';
+  });
   video.play().catch(updateUnmute);
   updateUnmute();
 })();
